@@ -8,30 +8,31 @@
 
     <application
         android:allowBackup="true"
-        android:label="@string/app_name"
         android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.pbreakers.medprox.activity.authentification.RegistrationActivity"/>
 
-        <!-- login -->
+        <activity android:name=".activity.authentification.RegistrationActivity" /> <!-- login -->
         <activity
-            android:label="MEDPROX | Connexion"
-            android:name="com.pbreakers.medprox.activity.authentification.LoginActivity">
+            android:name=".activity.authentification.LoginActivity"
+            android:label="MEDPROX | Connexion">
             <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <action android:name="android.intent.action.VIEW" />
-            <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:label="MEDPROX | Acceuil"
-            android:name=".activity.home.MainActivity">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
-                <!--<action android:name="android.intent.action.VIEW" />-->
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+            android:name=".activity.home.MainActivity"
+            android:label="MEDPROX | Acceuil">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+            <!-- <action android:name="android.intent.action.VIEW" /> -->
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
     </application>
 
