@@ -4,7 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".authentification.LoginActivity">
+    tools:context=".activity.authentification.LoginActivity">
+
+    <com.wang.avi.AVLoadingIndicatorView
+        app:indicatorColor="@color/colorPrimary"
+        android:id="@+id/loading"
+        android:visibility="gone"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:indicatorName="BallPulseIndicator" />
 
     <LinearLayout
         android:layout_centerInParent="true"
@@ -13,11 +23,13 @@
         android:layout_height="wrap_content">
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edPhoneNumberLayout"
             android:hint="Numero"
             android:layout_width="250dp"
             android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:drawablePadding="10dp"
                 android:id="@+id/edPhoneNumber"
                 android:inputType="phone"
                 android:layout_width="match_parent"
@@ -26,21 +38,23 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edPasswordLayout"
             app:passwordToggleEnabled="true"
+            android:hint="Mot de passe"
             android:layout_width="250dp"
             android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:drawablePadding="10dp"
                 android:id="@+id/edPassword"
                 android:inputType="textPassword"
-                android:maxLength="13"
-                android:hint="Mot de passe"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
+            android:id="@+id/tvCreateAccount"
             android:textColor="@color/colorPrimary"
             android:layout_marginTop="20dp"
             android:layout_gravity="center"
@@ -55,7 +69,7 @@
         android:textColor="#fff"
         android:textSize="20dp"
         android:text="Connexion"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/bg_graduant"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
