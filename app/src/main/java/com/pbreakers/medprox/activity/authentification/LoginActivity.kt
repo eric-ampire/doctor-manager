@@ -4,9 +4,17 @@ import android.app.ProgressDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.pbreakers.medprox.R
+import com.pbreakers.medprox.activity.home.MainActivity
 import com.pbreakers.medprox.isNotValidText
+import com.pbreakers.medprox.model.User
+import com.pbreakers.medprox.rest.UserService
+import com.pbreakers.medprox.retrofitBuilder
 import kotlinx.android.synthetic.main.activity_login.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class LoginActivity : AppCompatActivity() {
@@ -28,7 +36,7 @@ class LoginActivity : AppCompatActivity() {
                     return@setOnClickListener
                 }
 
-                else -> tryToLogin()
+                else -> tryToLogin(phoneNumber, password)
             }
         }
 
@@ -37,14 +45,45 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun tryToLogin() {
+    private fun tryToLogin(phoneNumber: String, password: String) {
         val loadingDialog = ProgressDialog(this).apply {
             setTitle("Connexion")
             setMessage("Patientez s'il vous plait")
             setCancelable(false)
         }
 
-
         loadingDialog.show()
+        val userCallback = retrofitBuilder
+                .create(UserService::class.java)
+                .getUsers()
+
+        userCallback.enqueue(object : Callback<List<User>> {
+            override fun onFailure(call: Call<List<User>>, t: Throwable) {
+                loadingDialog.dismiss()
+                Toast.makeText(baseContext, t.message, Toast.LENGTH_LONG).show()
+            }
+
+            override fun onResponse(call: Call<List<User>>, response: Response<List<User>>) {
+                if (response.isSuccessful) {
+
+                    response.body()?.forEach {
+                        if ((it.login == phoneNumber) and (it.id == password)) {
+                            loadingDialog.dismiss()
+
+                            saveUserInformation(it)
+                            startActivity(Intent(baseContext, MainActivity::class.java))
+                        }
+                    }
+
+                } else {
+                    loadingDialog.dismiss()
+                    Toast.makeText(baseContext, response.errorBody().toString(), Toast.LENGTH_LONG).show()
+                }
+            }
+        })
+    }
+
+    private fun saveUserInformation(it: User) {
+
     }
 }
