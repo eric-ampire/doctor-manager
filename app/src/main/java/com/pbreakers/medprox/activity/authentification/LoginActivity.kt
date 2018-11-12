@@ -4,18 +4,9 @@ import android.app.ProgressDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.pbreakers.medprox.activity.MainActivity
 import com.pbreakers.medprox.R
 import com.pbreakers.medprox.isNotValidText
 import kotlinx.android.synthetic.main.activity_login.*
-import android.view.View
-import com.android.volley.Request
-import com.android.volley.Response
-import com.android.volley.toolbox.StringRequest
-import com.android.volley.toolbox.Volley
-import com.google.android.material.snackbar.Snackbar
-import com.roger.catloadinglibrary.CatLoadingView
-import org.json.JSONArray
 
 
 class LoginActivity : AppCompatActivity() {

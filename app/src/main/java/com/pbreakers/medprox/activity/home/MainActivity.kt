@@ -1,4 +1,4 @@
-package com.pbreakers.medprox.activity
+package com.pbreakers.medprox.activity.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
