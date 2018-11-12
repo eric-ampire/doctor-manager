@@ -2,6 +2,8 @@ package com.pbreakers.medprox
 
 import android.util.Log
 import com.google.android.material.textfield.TextInputLayout
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 fun String.isNotValidText(textInputLayout: TextInputLayout, errorMessage: String): Boolean {
     if (this.isEmpty() or this.isBlank()) {
@@ -21,4 +23,12 @@ fun String.isNotValidPassWord(textInputLayout: TextInputLayout): Boolean {
 
     textInputLayout.isErrorEnabled = false
     return false
+}
+
+
+val retrofitBuilder by lazy {
+    Retrofit.Builder()
+        .baseUrl("https://api.github.com")
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
 }
