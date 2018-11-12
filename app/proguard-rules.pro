@@ -62,3 +62,7 @@
 
 # Top-level functions that can only be used by Kotlin.
 -dontwarn retrofit2.-KotlinExtensions
+
+-keepclassmembers class android.support.design.internal.BottomNavigationMenuView {
+    boolean mShiftingMode;
+}
