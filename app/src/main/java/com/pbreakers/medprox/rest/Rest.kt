@@ -1,5 +1,6 @@
 package com.pbreakers.medprox.rest
 
+import com.pbreakers.medprox.model.TypePartenaire
 import com.pbreakers.medprox.model.User
 import retrofit2.Call
 import retrofit2.http.GET
@@ -12,4 +13,9 @@ interface UserService {
     @GET("users/{idUser}")
     fun getUser(@Path("idUser") idUser: Int) : Call<User>
 
+}
+
+interface TypePartenaireService {
+    @GET("types")
+    fun getAllType(): Call<List<TypePartenaire>>
 }
