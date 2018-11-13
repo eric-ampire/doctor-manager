@@ -14,17 +14,31 @@ import kotlinx.android.synthetic.main.fragment_home.*
 
 
 class HomeFragment : Fragment(), BottomNavigationView.OnNavigationItemSelectedListener {
+
     override fun onNavigationItemSelected(menuItem: MenuItem): Boolean {
-        return true
+        return when(menuItem.itemId) {
+            R.id.navigation_home -> {
+                activity!!.supportFragmentManager.beginTransaction()
+                    .replace(R.id.frameLayoutDashBoard, DashBoardFragment())
+                    .commit()
+
+                true
+            }
+
+            else -> false
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        activity!!.supportFragmentManager.beginTransaction()
+            .replace(R.id.frameLayoutDashBoard, DashBoardFragment())
+            .commit()
+
         bottomNavigation.setOnNavigationItemSelectedListener(this)
     }
 }
