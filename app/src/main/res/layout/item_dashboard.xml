@@ -40,7 +40,7 @@
         <TextView
             android:textSize="11sp"
             android:id="@+id/tvDescripType"
-            android:paddingBottom="5dp"
+            android:paddingBottom="7dp"
             android:textAlignment="center"
             android:text="Il s'agit de la "
             android:layout_width="match_parent"
