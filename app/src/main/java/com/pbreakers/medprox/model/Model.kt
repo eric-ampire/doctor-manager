@@ -1,7 +1,5 @@
 package com.pbreakers.medprox.model
 
-import androidx.appcompat.widget.DialogTitle
-
 data class User(
     var id: String = "",
     var login: String = ""
