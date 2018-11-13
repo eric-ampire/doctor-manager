@@ -69,7 +69,7 @@
 
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/previewToLogin"
-            android:src="@drawable/ic_navigate_before_black_24dp"
+            app:srcCompat="@drawable/ic_navigate_before_black_24dp"
             android:textColor="#fff"
             android:textSize="20dp"
             android:text="Precedant"
@@ -87,7 +87,7 @@
 
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/nextToAdress"
-            android:src="@drawable/ic_navigate_next_black_24dp"
+            app:srcCompat="@drawable/ic_navigate_next_black_24dp"
             android:textColor="#fff"
             android:textSize="20dp"
             android:layout_weight="5"
