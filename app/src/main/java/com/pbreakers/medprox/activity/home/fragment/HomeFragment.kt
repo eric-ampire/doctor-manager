@@ -25,6 +25,14 @@ class HomeFragment : Fragment(), BottomNavigationView.OnNavigationItemSelectedLi
                 true
             }
 
+            R.id.navigation_notifications -> {
+                activity!!.supportFragmentManager.beginTransaction()
+                    .replace(R.id.frameLayoutDashBoard, NotificationFragment())
+                    .commit()
+
+                true
+            }
+
             else -> false
         }
     }
