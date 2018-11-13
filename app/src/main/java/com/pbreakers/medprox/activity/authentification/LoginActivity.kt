@@ -1,10 +1,12 @@
 package com.pbreakers.medprox.activity.authentification
 
 import android.app.ProgressDialog
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+//import androidx.core.content.edit
 import com.pbreakers.medprox.R
 import com.pbreakers.medprox.activity.home.MainActivity
 import com.pbreakers.medprox.isNotValidText
@@ -67,12 +69,16 @@ class LoginActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
 
                     response.body()?.forEach {
+                        Toast.makeText(baseContext, it.login, Toast.LENGTH_LONG).show()
+
                         if ((it.login == phoneNumber) and (it.id == password)) {
                             loadingDialog.dismiss()
 
                             saveUserInformation(it)
                             startActivity(Intent(baseContext, MainActivity::class.java))
                         }
+
+                        Toast.makeText(baseContext, "Verifier votre numero ou le mot de passe", Toast.LENGTH_LONG).show()
                     }
 
                 } else {
@@ -84,6 +90,6 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun saveUserInformation(it: User) {
-
+        //val editor = getSharedPreferences("user-information", Context.MODE_PRIVATE).de
     }
 }
