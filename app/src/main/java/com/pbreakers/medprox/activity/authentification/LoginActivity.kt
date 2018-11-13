@@ -38,7 +38,10 @@ class LoginActivity : AppCompatActivity() {
                     return@setOnClickListener
                 }
 
-                else -> tryToLogin(phoneNumber, password)
+                else -> {
+                    startActivity(Intent(baseContext, MainActivity::class.java))
+                    //tryToLogin(phoneNumber, password)
+                }
             }
         }
 
