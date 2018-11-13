@@ -20,7 +20,7 @@ class IdentityFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        activity?.title = "MEDPROX | Connexion"
+        activity?.title = "MEDPROX | Indentité"
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
