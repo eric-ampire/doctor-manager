@@ -9,11 +9,10 @@ import retrofit2.http.Path
 
 interface UserService {
     @GET("users")
-    fun getUsers() : Call<List<User>>
+    fun getUsers(): Call<List<User>>
 
-    @GET("users/{idUser}")
-    fun getUser(@Path("idUser") idUser: Int) : Call<User>
-
+    @GET("users/{login}/{password}")
+    fun authentification(@Path("login") numero: String, @Path("password") password: String) : Call<User>
 }
 
 interface TypePartenaireService {
@@ -22,6 +21,6 @@ interface TypePartenaireService {
 }
 
 interface NotificationService {
-    @GET("nofitications")
+    @GET("notifications")
     fun getAllNotification(): Call<List<Notification>>
 }
