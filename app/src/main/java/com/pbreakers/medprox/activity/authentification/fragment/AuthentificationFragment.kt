@@ -2,8 +2,10 @@ package com.pbreakers.medprox.activity.authentification.fragment
 
 
 import android.app.ProgressDialog
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -47,7 +49,7 @@ class AuthentificationFragment : Fragment() {
                 }
 
                 else -> {
-                    startActivity(Intent(activity, MainActivity::class.java))
+                    tryToLogin(phoneNumber, password)
                 }
             }
         }
@@ -71,39 +73,44 @@ class AuthentificationFragment : Fragment() {
         loadingDialog.show()
         val userCallback = retrofitBuilder
                 .create(UserService::class.java)
-                .getUsers()
+                .authentification(phoneNumber, password)
 
-        userCallback.enqueue(object : Callback<List<User>> {
-            override fun onFailure(call: Call<List<User>>, t: Throwable) {
+        userCallback.enqueue(object : Callback<User> {
+            override fun onFailure(call: Call<User>, t: Throwable) {
                 loadingDialog.dismiss()
-                Toast.makeText(activity, t.message, Toast.LENGTH_LONG).show()
+                Toast.makeText(activity, "Failure "  + t.message, Toast.LENGTH_LONG).show()
             }
 
-            override fun onResponse(call: Call<List<User>>, response: Response<List<User>>) {
+            override fun onResponse(call: Call<User>, response: Response<User>) {
                 if (response.isSuccessful) {
-
-                    response.body()?.forEach {
-                        Toast.makeText(activity, it.login, Toast.LENGTH_LONG).show()
-
-                        if ((it.login == phoneNumber) and (it.id == password)) {
-                            loadingDialog.dismiss()
-
-                            saveUserInformation(it)
-                            startActivity(Intent(activity, MainActivity::class.java))
-                        }
-
-                        Toast.makeText(activity, "Verifier votre numero ou le mot de passe", Toast.LENGTH_LONG).show()
-                    }
+                    loadingDialog.dismiss()
+                    saveUserInformation(response.body()!!)
 
                 } else {
                     loadingDialog.dismiss()
-                    Toast.makeText(activity, response.errorBody().toString(), Toast.LENGTH_LONG).show()
+                    Log.e("ericampire", "Error " + response.raw().toString())
+                    Toast.makeText(activity, "Error " + response.raw(), Toast.LENGTH_LONG).show()
                 }
             }
         })
     }
 
-    private fun saveUserInformation(it: User) {
-        //val editor = getSharedPreferences("user-information", Context.MODE_PRIVATE).de
+    private fun saveUserInformation(user: User) {
+        activity!!.getSharedPreferences("user-info", Context.MODE_PRIVATE).edit().apply {
+            putString("idUser", user.idUser)
+            putString("nomUser", user.nomUser)
+            putString("postNomUser", user.postNomUser)
+            putString("prenomUser", user.prenomUser)
+            putString("adressUser", user.adressUser)
+            putString("password", user.password)
+            putString("dateEnregistrement", user.dateEnregistrement)
+            putString("urlProfilUser", user.urlProfilUser)
+            putString("genre", user.genre)
+            putString("loginUser", user.loginUser)
+
+            apply()
+        }
+
+        startActivity(Intent(activity, MainActivity::class.java))
     }
 }
