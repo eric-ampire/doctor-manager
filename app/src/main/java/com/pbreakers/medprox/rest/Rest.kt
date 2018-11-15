@@ -11,7 +11,7 @@ interface UserService {
     @GET("users")
     fun getUsers(): Call<List<User>>
 
-    @GET("users/{login}/{password}")
+    @GET("user/api/{login}/{password}")
     fun authentification(@Path("login") numero: String, @Path("password") password: String) : Call<User>
 }
 

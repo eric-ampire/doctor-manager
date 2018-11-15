@@ -31,7 +31,7 @@ fun String.isNotValidPassWord(textInputLayout: TextInputLayout): Boolean {
 
 val retrofitBuilder: Retrofit by lazy {
     Retrofit.Builder()
-        .baseUrl("https://api.github.com")
+        .baseUrl("http://192.168.43.46/medprox/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 }
