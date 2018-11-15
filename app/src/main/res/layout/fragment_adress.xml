@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edPhoneNumberLayout"
+            android:hint="Numéro téléphone"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:drawablePadding="10dp"
+                android:id="@+id/edPhoneNumber"
+                android:inputType="phone"
+                android:maxLines="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edAdressLayout"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:drawablePadding="10dp"
+                android:id="@+id/edAdress"
+                android:inputType="textShortMessage"
+                android:hint="Adresse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:background="@drawable/bg_graduant"
+        android:orientation="horizontal"
+        android:weightSum="10"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/previewToIndentity"
+            app:srcCompat="@drawable/ic_navigate_before_black_24dp"
+            android:textColor="#fff"
+            android:textSize="20dp"
+            android:text="Precedant"
+            android:background="#00ffffff"
+            android:layout_weight="5"
+            android:layout_alignParentBottom="true"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp" />
+
+        <View
+            android:layout_margin="5dp"
+            android:background="#fff"
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/nextToPassword"
+            app:srcCompat="@drawable/ic_navigate_next_black_24dp"
+            android:textColor="#fff"
+            android:textSize="20dp"
+            android:background="#00ffffff"
+            android:layout_weight="5"
+            android:text="Suivant"
+            android:layout_alignParentBottom="true"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp" />
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+</RelativeLayout>

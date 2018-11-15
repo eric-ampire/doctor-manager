@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    android:layout_margin="10dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/ivLogoItem"
+            android:background="@drawable/bg_circle_green"
+            android:padding="10dp"
+            app:srcCompat="@drawable/ic_home_black_24dp"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
+
+        <TextView
+            android:textColor="#000"
+            android:id="@+id/tvTitreType"
+            android:textAlignment="center"
+            android:text="Pharmacie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:background="#aaa"
+            android:layout_margin="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp" />
+
+        <TextView
+            android:textSize="11sp"
+            android:id="@+id/tvDescripType"
+            android:paddingBottom="7dp"
+            android:textAlignment="center"
+            android:text="Il s'agit de la "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+
+</com.google.android.material.card.MaterialCardView>
