@@ -1,8 +1,16 @@
 package com.pbreakers.medprox.model
 
 data class User(
-    var id: String = "",
-    var login: String = ""
+    var idUser: String = "",
+    var nomUser: String = "",
+    var postNomUser: String = "",
+    var prenomUser: String = "",
+    var adressUser: String = "",
+    var loginUser: String = "",
+    var urlProfilUser: String = "",
+    var password: String = "",
+    var genre: String = "",
+    var dateEnregistrement: String = ""
 )
 
 data class TypePartenaire(
