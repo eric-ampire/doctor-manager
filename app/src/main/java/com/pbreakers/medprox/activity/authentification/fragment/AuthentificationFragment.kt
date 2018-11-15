@@ -96,17 +96,17 @@ class AuthentificationFragment : Fragment() {
     }
 
     private fun saveUserInformation(user: User) {
-        activity!!.getSharedPreferences("user-info", Context.MODE_PRIVATE).edit().apply {
-            putString("idUser", user.idUser)
-            putString("nomUser", user.nomUser)
-            putString("postNomUser", user.postNomUser)
-            putString("prenomUser", user.prenomUser)
-            putString("adressUser", user.adressUser)
-            putString("password", user.password)
-            putString("dateEnregistrement", user.dateEnregistrement)
-            putString("urlProfilUser", user.urlProfilUser)
-            putString("genre", user.genre)
-            putString("loginUser", user.loginUser)
+        activity!!.getSharedPreferences(User.KEY_USER, Context.MODE_PRIVATE).edit().apply {
+            putString(User.ID_USER, user.idUser)
+            putString(User.NOM_USER, user.nomUser)
+            putString(User.POSTNOM_USER, user.postNomUser)
+            putString(User.PRENOM_USER, user.prenomUser)
+            putString(User.ADRESSE_USER, user.adressUser)
+            putString(User.PASSWORD_USER, user.password)
+            putString(User.DATE_ENREG_USER, user.dateEnregistrement)
+            putString(User.PROFILE_USER, user.urlProfilUser)
+            putString(User.GENRE_USER, user.genre)
+            putString(User.LOGIN_USER, user.loginUser)
 
             apply()
         }
