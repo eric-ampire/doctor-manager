@@ -1,0 +1,13 @@
+package com.pbreakers.medprox.activity.authentification
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import com.pbreakers.medprox.R
+
+class SplashActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_splash)
+    }
+}
