@@ -3,19 +3,29 @@ package com.pbreakers.medprox.activity.home.fragment
 
 import android.content.res.Resources
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 
 import com.pbreakers.medprox.R
 import com.pbreakers.medprox.getRandomColor
 import com.pbreakers.medprox.model.Notification
+import com.pbreakers.medprox.model.TypePartenaire
+import com.pbreakers.medprox.model.User
+import com.pbreakers.medprox.rest.NotificationService
+import com.pbreakers.medprox.rest.TypePartenaireService
+import com.pbreakers.medprox.retrofitBuilder
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Item
 import com.xwray.groupie.ViewHolder
 import kotlinx.android.synthetic.main.fragment_notification.*
 import kotlinx.android.synthetic.main.item_notification.view.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import kotlin.random.Random
 
 

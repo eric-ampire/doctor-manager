@@ -16,11 +16,11 @@ interface UserService {
 }
 
 interface TypePartenaireService {
-    @GET("types")
-    fun getAllType(): Call<List<TypePartenaire>>
+    @GET("type/json")
+    fun getAllType(): Call<String>
 }
 
 interface NotificationService {
-    @GET("notifications")
-    fun getAllNotification(): Call<List<Notification>>
+    @GET("user/api/")
+    fun getAllNotification(): Call<List<User>>
 }
