@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 
 import com.pbreakers.medprox.R
 import com.pbreakers.medprox.activity.home.MainActivity
@@ -53,6 +54,10 @@ class AuthentificationFragment : Fragment() {
 
         tvCreateAccount.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.action_authentificationFragment_to_identityFragment)
+        }
+
+        tvPasswordForgotten.setOnClickListener {
+            Navigation.findNavController(it).navigate(R.id.action_authentificationFragment_to_resetCodeFragment)
         }
     }
 
